@@ -1,6 +1,6 @@
 <script>
-import Button from './shared/Button.vue';
-import Modal from './shared/Modal.vue';
+import Button from './shared/Button.vue'
+import Modal from './shared/Modal.vue'
 
 export default {
     props: {
@@ -17,14 +17,14 @@ export default {
             required: true,
         },
     },
-    components:{
+    components: {
         Button,
     },
-    methods:{
-        deleteNote(){
-            this.$store.commit("deleteNote", this.id)
-        }
-    }
+    methods: {
+        deleteNote() {
+            this.$store.commit('deleteNote', this.id)
+        },
+    },
 }
 </script>
 
@@ -120,7 +120,6 @@ export default {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     word-break: break-word;
-
 
     overflow: hidden;
 }

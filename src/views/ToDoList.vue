@@ -1,4 +1,5 @@
 <script>
+import EmptyState from '../components/EmptyState.vue';
 import Button from '../components/shared/Button.vue'
 import Modal from '../components/shared/Modal.vue'
 import TaskForm from '../components/TaskForm.vue'
@@ -9,10 +10,14 @@ export default {
         TaskList,
         Modal,
         Button,
+        EmptyState,
     },
     computed: {
         isModalOpen() {
             return this.$store.state.isModalOpen
+        },
+            hasTasks() {
+                return this.$store.state.tasks.length > 0
         },
     },
     methods: {
@@ -49,7 +54,8 @@ export default {
         </Modal>
         <div class="wrapper">
             <TaskForm />
-            <TaskList />
+            <TaskList v-if="hasTasks"/>
+            <EmptyState v-else />
         </div>
     </div>
 </template>

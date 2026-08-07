@@ -1,13 +1,11 @@
 <script>
 import Button from './shared/Button.vue'
 import Input from './shared/Input.vue'
-import Modal from './shared/modal.vue'
 
 export default {
     components: {
         Input,
         Button,
-        Modal,
     },
 
     data() {

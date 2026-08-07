@@ -1,4 +1,5 @@
 <script>
+import EmptyState from '../components/EmptyState.vue';
 import NoteList from '../components/NoteList.vue'
 import Button from '../components/shared/Button.vue'
 
@@ -6,6 +7,7 @@ export default {
     components: {
         Button,
         NoteList,
+        EmptyState,
     },
 
     methods: {
@@ -20,14 +22,19 @@ export default {
             this.$router.push(`/notes/note/${note.id}`)
         },
     },
+    computed:{
+        hasNote(){
+            return this.$store.state.notes.length > 0
+        }
+    }
 }
 </script>
 
 <template>
-
     <div class="notes-page">
         <Button text="Создать" variant="primary" @click="createNote" />
-        <NoteList />
+        <NoteList v-if="hasNote"/>
+        <EmptyState v-else/>
     </div>
 </template>
 
